@@ -22,6 +22,7 @@ $roots_includes = array(
   'lib/scripts.php',         // Scripts and stylesheets
   'lib/extras.php',          // Custom functions
   'lib/woocommerce.php',
+  'lib/wc-forms.php',
 );
 
 foreach ($roots_includes as $file) {

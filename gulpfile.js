@@ -12,6 +12,14 @@ var config = {
     lessPath: './assets/less'
 }
 
+var scripts = [
+    config.bowerDir + '/bootstrap/dist/js/bootstrap.js',
+    config.bowerDir + '/imagesloaded/imagesloaded.pkgd.js',
+    config.bowerDir + '/masonry/dist/masonry.pkgd.js',
+    './assets/js/_woocommerce.js',
+    './assets/js/_main.js'
+];
+
 gulp.task('default', ['less']);
 
 
@@ -32,13 +40,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src([
-        //config.bowerDir + '/jquery/dist/jquery.js',
-        config.bowerDir + '/bootstrap/dist/js/bootstrap.js',
-        config.bowerDir + '/masonry/dist/masonry.pkgd.js',
-        './assets/js/_woocommerce.js',
-        './assets/js/_main.js'
-    ])
+    return gulp.src(scripts)
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('./assets/js'))
         .pipe(notify('Scripts Compiled'))

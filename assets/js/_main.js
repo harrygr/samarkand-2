@@ -18,73 +18,75 @@
 
 // Use this variable to set up the common and page specific functions. If you 
 // rename this variable, you will also need to rename the namespace below.
-var Roots = {
-  // All pages
-  common: {
-    init: function() {
-      // JavaScript to be fired on all pages
+  var Roots = {
+    // All pages
+    common: {
+      init: function() {
+        // JavaScript to be fired on all pages
 
-      $(function(){
+        $(function(){
 
-      // Parallax Effect
-      var parallaxSettings = {
-        enabled: true,
-        // Parallax factor (lower = more intense, higher = less intense).
-        scrollFactor: 5
-      };
+          // Parallax Effect
+          var parallaxSettings = {
+            enabled: true,
+            // Parallax factor (lower = more intense, higher = less intense).
+            scrollFactor: 5
+          };
 
-      var $header = $('#header');
-      var $window = $(window);
-      $window.scroll(function () {
-        $header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / parallaxSettings.scrollFactor)) + 'px');
-      });
-      });
+          var $header = $('#header');
+          var $window = $(window);
+          $window.scroll(function () {
+            $header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / parallaxSettings.scrollFactor)) + 'px');
+          });
+        });
 
-      // Masonry on the product loop
-      $('body.archive ul.products').masonry({
-        itemSelector: '.masonry-product'
-      });
+        // Masonry on the product loop
+        $('body').imagesLoaded(function(){
+          $('body.archive ul.products').masonry({
+            itemSelector: '.masonry-product'
+          });
+        });
 
+      }
+    },
+    shop: {
+      init: function() {
+
+      }
+    },
+    // Home page
+    home: {
+      init: function() {
+        // JavaScript to be fired on the home page
+      }
+    },
+    // About us page, note the change from about-us to about_us.
+    about_us: {
+      init: function() {
+        // JavaScript to be fired on the about us page
+      }
     }
-  },
-  shop: {
-    init: function() {
-
-    }
-  },
-  // Home page
-  home: {
-    init: function() {
-      // JavaScript to be fired on the home page
-    }
-  },
-  // About us page, note the change from about-us to about_us.
-  about_us: {
-    init: function() {
-      // JavaScript to be fired on the about us page
-    }
-  }
-};
+  };
 
 // The routing fires all common scripts, followed by the page specific scripts.
 // Add additional events for more control over timing e.g. a finalize event
-var UTIL = {
-  fire: function(func, funcname, args) {
-    var namespace = Roots;
-    funcname = (funcname === undefined) ? 'init' : funcname;
-    if (func !== '' && namespace[func] && typeof namespace[func][funcname] === 'function') {
-      namespace[func][funcname](args);
+  var UTIL = {
+    fire: function(func, funcname, args) {
+      var namespace = Roots;
+      funcname = (funcname === undefined) ? 'init' : funcname;
+      if (func !== '' && namespace[func] && typeof namespace[func][funcname] === 'function') {
+        namespace[func][funcname](args);
+      }
+    },
+    loadEvents: function() {
+      UTIL.fire('common');
+
+      $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
+        UTIL.fire(classnm);
+      });
     }
-  },
-  loadEvents: function() {
-    UTIL.fire('common');
+  };
 
-    $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
-      UTIL.fire(classnm);
-    });
-  }
-};
-
-$(document).ready(UTIL.loadEvents);
+  $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.

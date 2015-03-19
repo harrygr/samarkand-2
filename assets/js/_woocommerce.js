@@ -4,8 +4,8 @@ jQuery(function($){
     var cartTotal = $.cookie("woocommerce_cart_total");
     if ( typeof(cartTotal) === "undefined") cartTotal = "£0.00";
 
-    var cart_url = "/cart";
-    var shop_url = "/shop";
+    var cart_url = $('meta[name=wc_cart_url]').attr('content');
+    var shop_url = $('meta[name=wc_shop_url]').attr('content');
 
     if (typeof(cartCount) !== "undefined" && parseInt(cartCount, 10) > 0) {
         $('#micro-cart .cart_link').html(cartCount + ' items');

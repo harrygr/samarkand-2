@@ -1,10 +1,10 @@
 <?php
 
 // Declare WooCommerce Support
-add_action( 'after_setup_theme', 'woocommerce_support' );
-function woocommerce_support() {
+//add_action( 'after_setup_theme', 'woocommerce_support' );
+//function woocommerce_support() {
     add_theme_support( 'woocommerce' );
-}
+//}
 
 
 // Remove default styles
@@ -72,10 +72,23 @@ if (!is_admin())
 function update_cart_total_cookie() {
     $cart_total = WC()->cart->get_cart_total();
     $cart_count = WC()->cart->cart_contents_count;
-    var_dump(WC()->cart);
     setcookie('woocommerce_cart_count', $cart_count, 0, '/');
     setcookie('woocommerce_cart_total', $cart_total, 0, '/');
 }
+
 if(!is_admin()){
-    add_action('init', 'update_cart_total_cookie');
+    add_action('send_headers', 'update_cart_total_cookie', 99);
 }
+function outputShit()
+{
+    var_dump(['shit', 'poo']);
+}
+
+function sd_output_breadcrumbs()
+{
+    echo '<div class="col-md-12">';
+    woocommerce_breadcrumb();
+    echo '</div>';
+}
+add_action('woocommerce_before_main_content', 'outputShit', 20, 0);
+
