@@ -15,4 +15,5 @@ jQuery(function($){
         $('#micro-cart .cart_link').attr('href', shop_url);
     }
     $('#micro-cart .cart_amount').html(cartTotal);
+
 });

@@ -14,6 +14,7 @@
  * remove or comment out: add_theme_support('jquery-cdn');
  * ======================================================================== */
 
+
 (function($) {
 
 // Use this variable to set up the common and page specific functions. If you 

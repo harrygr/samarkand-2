@@ -92,3 +92,4 @@ function sd_output_breadcrumbs()
 }
 add_action('woocommerce_before_main_content', 'outputShit', 20, 0);
 
+require_once "woocommerce/checkout.php";

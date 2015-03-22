@@ -1,3 +1,8 @@
+// Base
+
+@header-text-opacity: .5;
+
+
 // Type
 
 @font-family-base: "Source Sans Pro", Helvetica, sans-serif;
@@ -12,7 +17,6 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #27ae60;
 
 @or-melon:			#F55D2C; //dark orange
 @footer-blue: 		#33495e; //dark blue
@@ -28,8 +32,25 @@
 @brand5: @an-white;
 
 @brand-primary:         @or-melon; //#428bca;
+@brand-success:         #047d5e;   //#5cb85c;
+@brand-info:            @or-melon;
+@brand-warning:         #f0ad4e;
+@brand-danger: #a64b45;   //#d9534f;
 
-@translucent-gray: rgba(255, 255, 255, 0.5);
+@translucent-gray: rgba(255, 255, 255, @header-text-opacity);
+
+//## Social Colours
+
+@fb-blue: #3b5998;
+@tw-blue: #00aced;
+@yt-red:  #bb0000;
+@pi-red:  #cb2027;
+@tb-turq: #32506d;
+@sp-green:#7AB800;
+@in-blue: #3f729b;
+
+@border-radius-base: 2px;
+@border-radius-large: @border-radius-base;
 
 // Glyphicons path
 // -------------------------
@@ -37,3 +58,33 @@
 @icon-font-path:        "../vendor/bootstrap/fonts/";
 
 @text-color:            #a2a2a2;
+
+// Buttons
+@btn-border: 3px solid transparent;
+
+@btn-default-border: darken(@gray-lighter, 10%);
+
+//Forms
+@input-border-focus: darken(@gray-lighter, 20%);
+@input-border: @btn-default-border;
+@input-height-base: 38px;
+
+// Alerts
+
+@alert-text-color: @gray-light;
+
+@state-success-text:             @alert-text-color;
+@state-info-text:                @alert-text-color;
+@state-warning-text:             @alert-text-color;
+@state-danger-text:              @alert-text-color;
+
+@state-success-border:               @brand-success;
+@state-info-border:                  @brand-primary;
+@state-warning-border:               @brand-warning;
+@state-danger-border:                @brand-danger;
+
+@state-success-text:               @brand-success;
+//@state-info-text:                  @brand-primary;
+//@state-warning-text:               @brand-warning;
+@state-danger-text:                @brand-danger;
+

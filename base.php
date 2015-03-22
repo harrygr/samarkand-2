@@ -24,6 +24,9 @@
 
       <div class="col-sm-8 col-md-9 col-sm-offset-4 col-md-offset-3">
         <main id="main" class="main" role="main">
+
+        <?php if ( is_woocommerce() )  woocommerce_breadcrumb(); ?>
+
           <?php include roots_template_path(); ?>
         </main><!-- /.main -->
         <?php if (roots_display_sidebar()) : ?>
@@ -38,8 +41,7 @@
 
 
   <?php get_template_part('templates/footer'); ?>
-
-WPFooter Called:  <?php wp_footer(); ?>
+  <?php wp_footer(); ?>
 
 </body>
 </html>

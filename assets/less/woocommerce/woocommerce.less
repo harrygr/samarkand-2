@@ -1,6 +1,7 @@
 @import "_product-loop";
 @import "_single-product";
 @import "_cart";
+@import "_checkout";
 
 .woocommerce-message, .woocommerce-error{
   .alert;
@@ -8,11 +9,15 @@
     float:right;
   }
 }
-.woocommerce-message {
+.woocommerce-message, .woocommerce-info {
+  .alert;
   .alert-info;
 }
 .woocommerce-error {
   .alert-danger;
   list-style-type: none;
+}
 
+nav.woocommerce-breadcrumb {
+  margin-bottom: 15px;
 }

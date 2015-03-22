@@ -1,0 +1,42 @@
+#place_order {
+  .btn;
+  .btn-success;
+  .btn-lg;
+}
+ul.payment_methods {
+  padding: 0;
+  list-style-type: none;
+}
+
+.wc-credit-card-form-card-number {
+  @cc_offset: 56.5px;
+  @cc_start: 2px;
+  background-image: url('../img/cards1.svg');
+  //background-position: 99% -999px;
+  background-position: 99% -999px;
+  background-size: 43px;
+  background-repeat: no-repeat;
+  &.visa {
+    background-position: 99% @cc_start - @cc_offset * 0;
+  }
+  &.mastercard {
+    background-position: 99% @cc_start - @cc_offset * 1;
+  }
+  &.amex {
+    background-position: 99% @cc_start - @cc_offset * 2;
+  }
+  &.dinersclub {
+    background-position: 99% @cc_start - @cc_offset * 400;
+  }
+  &.jcb {
+    background-position: 99% @cc_start - @cc_offset * 3;
+  }
+  &.discover {
+    background-position: 99% @cc_start - @cc_offset * 4;
+  }
+}
+#mg-stripe-errorbox {
+  list-style-type: none;
+  padding-left: 0;
+  color: @brand-danger;
+}

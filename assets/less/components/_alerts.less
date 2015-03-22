@@ -1,0 +1,15 @@
+
+.alert-variant(@background; @border; @text-color) {
+  background-color: @bg-white;
+  //border-color: @border;
+  color: @text-color;
+  border: 0;
+  border-left: 10px @border solid;
+
+  hr {
+    border-top-color: darken(@border, 5%);
+  }
+  .alert-link, a {
+    //color: darken(@background, 32%);
+  }
+}

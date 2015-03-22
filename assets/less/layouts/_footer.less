@@ -4,9 +4,9 @@
   text-align: center;
   padding: 4em 0;
   color: @translucent-gray;
-  background: #1f1815 url("../img/bg.jpg") repeat fixed top left;
+  background: #1f1815 url("../img/bg.jpg") repeat fixed bottom left;
   @media(min-width: @screen-sm-min) {
-    background: none;
+    background: none!important;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -23,6 +23,7 @@
     a {
       text-decoration: none;
       color: @translucent-gray;
+      .transition(color 400ms ease);
     }
     li {
       padding: 0 1em 0 0;
@@ -30,6 +31,21 @@
         padding-right: 0;
       }
       display: inline-block;
+
+    }
+
+    // Social Icons
+    .social-icon-twitter:hover {
+      color: @tw-blue;
+    }
+    .social-icon-facebook:hover {
+      color: @fb-blue;
+    }
+    .social-icon-pinterest:hover {
+      color: @pi-red;
+    }
+    .social-icon-instagram:hover {
+      color: @in-blue;
     }
   }
 
