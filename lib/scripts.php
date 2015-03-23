@@ -38,6 +38,7 @@ function roots_scripts() {
   }
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
+  wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic', false, null);
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
