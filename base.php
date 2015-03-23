@@ -29,8 +29,18 @@
 
           <?php include roots_template_path(); ?>
         </main><!-- /.main -->
+
+        <?php if (of_get_option('show_shop_sidebar') && is_woocommerce()) : ?>
+        <aside class="sidebar row">
+        <?php dynamic_sidebar('sidebar-shop'); ?>
+          <div class="col-xs-12"><hr/></div>
+
+        </aside>
+        <?php endif; ?>
+
         <?php if (roots_display_sidebar()) : ?>
           <aside class="sidebar row" role="complementary">
+
             <?php include roots_sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>

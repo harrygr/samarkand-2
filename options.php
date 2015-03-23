@@ -93,6 +93,14 @@ function optionsframework_options() {
         'std'  => 16
     ];
 
+    $options[] = [
+        'name'  => 'Shop Widgets',
+        'id'    => 'show_shop_sidebar',
+        'desc' => 'Show shop widgets',
+        'type'  => 'checkbox',
+        'std'   => true
+    ];
+
     $wp_editor_settings = array(
         'wpautop' => true, // Default
         'textarea_rows' => 5,
