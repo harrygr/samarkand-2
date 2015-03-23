@@ -79,10 +79,7 @@ function update_cart_total_cookie() {
 if(!is_admin()){
     add_action('send_headers', 'update_cart_total_cookie', 99);
 }
-function outputShit()
-{
-    var_dump(['shit', 'poo']);
-}
+
 
 function sd_output_breadcrumbs()
 {
@@ -90,6 +87,14 @@ function sd_output_breadcrumbs()
     woocommerce_breadcrumb();
     echo '</div>';
 }
-add_action('woocommerce_before_main_content', 'outputShit', 20, 0);
+
+//NUMBER OF PRODUCTS TO DISPLAY ON SHOP PAGE
+add_filter('loop_shop_per_page', 'wg_view_all_products');
+function wg_view_all_products(){
+    if($_GET['view'] === 'all'){
+        return '9999';
+    }
+    return of_get_option('shop_products_per_page', 16);
+}
 
 require_once "woocommerce/checkout.php";

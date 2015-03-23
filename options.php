@@ -85,6 +85,14 @@ function optionsframework_options() {
         'name' => __('Shop Settings', 'options_check'),
         'type' => 'heading');
 
+    $options[] = [
+        'name'  => 'Products per page on shop catalogue',
+        'id'    => 'shop_products_per_page',
+        'type' => 'text',
+        'class' => 'mini',
+        'std'  => 16
+    ];
+
     $wp_editor_settings = array(
         'wpautop' => true, // Default
         'textarea_rows' => 5,

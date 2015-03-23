@@ -16,7 +16,7 @@
     <div class="">
 
       <header id="header" class="col-sm-4 col-md-3">
-        <a href="#" class="image avatar">
+        <a href="<?php bloginfo('url'); ?>" class="image avatar">
           <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width;?>">
         </a>
         <h1><?php bloginfo('description'); ?></h1>

@@ -16,7 +16,7 @@
   }
 </style>
 <?php endif; ?>
-
+  <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico">
   <meta name="wc_cart_url" content="<?php echo WC()->cart->get_cart_url(); ?>" />
   <meta name="wc_shop_url" content="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>" />
 </head>

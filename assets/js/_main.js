@@ -25,24 +25,7 @@
       init: function() {
         // JavaScript to be fired on all pages
 
-        $(function(){
-
-          // Parallax Effect
-          var parallaxSettings = {
-            enabled: true,
-            // Parallax factor (lower = more intense, higher = less intense).
-            scrollFactor: 10
-          };
-
-          if (!isMobile())
-          {
-            var $header = $('#header');
-            var $window = $(window);
-            $window.scroll(function () {
-              $header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / parallaxSettings.scrollFactor)) + 'px');
-            });
-          }
-        });
+        enableParallax();
 
         // Masonry on the product loop
         $('body').imagesLoaded(function(){
@@ -51,7 +34,8 @@
           });
         });
 
-      enableFancybox();
+        enableFancybox();
+        addBootstrapClassToPagination();
 
       }
     },

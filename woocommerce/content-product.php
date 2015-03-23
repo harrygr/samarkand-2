@@ -31,11 +31,11 @@ if ( ! $product || ! $product->is_visible() )
 $woocommerce_loop['loop']++;
 
 // Extra post classes
-$classes = array('col-sm-6', 'masonry-product');
-if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
-	$classes[] = 'first';
-if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
-	$classes[] = 'last';
+$classes = array('col-sm-6','col-lg-4', 'masonry-product');
+//if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] )
+//	$classes[] = 'first';
+//if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
+//	$classes[] = 'last';
 ?>
 <li <?php post_class( $classes ); ?>>
 
