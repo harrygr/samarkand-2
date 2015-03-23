@@ -1,14 +1,14 @@
 {
-  "name": "roots",
-  "version": "7.0.3",
-  "author": "Ben Word <ben@benword.com>",
-  "homepage": "http://roots.io",
+  "name": "Samarkand 2",
+  "version": "0.0.1",
+  "author": "Harry G",
+  "homepage": "http://samarkanddesign.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/roots.git"
+    "url": "git://github.com/harrygr/samarkand-2.git"
   },
   "bugs": {
-    "url": "https://github.com/roots/roots/issues"
+    "url": "https://github.com/harrygr/samarkand-2/issues"
   },
   "licenses": [
     {
@@ -16,9 +16,6 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower install && grunt dev"
-  },
   "engines": {
     "node": ">= 0.10.0"
   },
