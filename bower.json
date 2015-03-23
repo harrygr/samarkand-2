@@ -19,6 +19,7 @@
     "respond": "1.4.2",
     "masonry": "~3.2.2",
     "fontawesome": "~4.3.0",
-    "imagesloaded": "~3.1.8"
+    "imagesloaded": "~3.1.8",
+    "fancybox": "~2.1.5"
   }
 }

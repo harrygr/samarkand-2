@@ -16,6 +16,9 @@ var scripts = [
     config.bowerDir + '/bootstrap/dist/js/bootstrap.js',
     config.bowerDir + '/imagesloaded/imagesloaded.pkgd.js',
     config.bowerDir + '/masonry/dist/masonry.pkgd.js',
+    config.bowerDir + '/fancybox/source/jquery.fancybox.js',
+    './assets/js/_functions.js',
+    './assets/js/_fancybox.js',
     './assets/js/_woocommerce.js',
     './assets/js/_main.js'
 ];
@@ -27,8 +30,9 @@ gulp.task('less', function() {
     return gulp.src('./assets/less/main.less')
         .pipe(less({
             paths: [
-                config.lessPath,
-                config.bowerDir + '/fontawesome/less'
+                config.bowerDir + '/fancybox/source',
+                config.bowerDir + '/fontawesome/less',
+                config.lessPath
             ]
         }).on("error", notify.onError(function (error) {
             return "Error: " + error.message;

@@ -31,14 +31,17 @@
           var parallaxSettings = {
             enabled: true,
             // Parallax factor (lower = more intense, higher = less intense).
-            scrollFactor: 5
+            scrollFactor: 10
           };
 
-          var $header = $('#header');
-          var $window = $(window);
-          $window.scroll(function () {
-            $header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / parallaxSettings.scrollFactor)) + 'px');
-          });
+          if (!isMobile())
+          {
+            var $header = $('#header');
+            var $window = $(window);
+            $window.scroll(function () {
+              $header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / parallaxSettings.scrollFactor)) + 'px');
+            });
+          }
         });
 
         // Masonry on the product loop
@@ -47,6 +50,8 @@
             itemSelector: '.masonry-product'
           });
         });
+
+      enableFancybox();
 
       }
     },
