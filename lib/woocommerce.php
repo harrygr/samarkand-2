@@ -97,4 +97,6 @@ function wg_view_all_products(){
     return of_get_option('shop_products_per_page', 16);
 }
 
+
+
 require_once "woocommerce/checkout.php";

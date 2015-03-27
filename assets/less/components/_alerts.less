@@ -1,15 +1,20 @@
 
-.alert-variant(@background; @border; @text-color) {
+.alert-variant(@background; @border; @alert-text-color-arg) {
   background-color: @bg-white;
   //border-color: @border;
-  color: @text-color;
+  color: @alert-text-color;
   border: 0;
   border-left: 10px @border solid;
 
   hr {
     border-top-color: darken(@border, 5%);
   }
+
+  list-style-type: none;
+
   .alert-link, a {
-    //color: darken(@background, 32%);
+    .btn;
+    .btn-default;
+    .pull-right;
   }
 }
