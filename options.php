@@ -43,12 +43,21 @@ function optionsframework_options() {
     ];
 
     $options[] = [
+        'name' => __('Houzz Profile URL', 'options_check'),
+        'desc' => __('Used for the footer Houzz button', 'options_check'),
+        'id' => 'houzz_url',
+        'std' => '',
+        'type' => 'text'
+    ];
+
+    $options[] = [
         'name' => __('Facebook Page URL', 'options_check'),
         'desc' => __('Used for the footer facebook button', 'options_check'),
         'id' => 'facebook_url',
         'std' => '',
         'type' => 'text'
     ];
+
     $options[] = [
         'name' => __('Twitter Profile URL', 'options_check'),
         'desc' => __('Used for the footer twitter button', 'options_check'),

@@ -6,11 +6,12 @@ var rename = require('gulp-rename');
 var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var replace = require('gulp-replace');
 
 var config = {
-    bowerDir: './assets/vendor' ,
+    bowerDir: './assets/vendor',
     lessPath: './assets/less'
-}
+};
 
 var scripts = [
     config.bowerDir + '/bootstrap/dist/js/bootstrap.js',
@@ -23,10 +24,10 @@ var scripts = [
     './assets/js/_main.js'
 ];
 
-gulp.task('default', ['less']);
+gulp.task('default', ['houzz-icon-css', 'fonts', 'less']);
+gulp.task('styles', ['default']);
 
-
-gulp.task('less', function() {
+gulp.task('less', ['houzz-icon-css', 'fonts'],function () {
     return gulp.src('./assets/less/main.less')
         .pipe(less({
             paths: [
@@ -43,18 +44,27 @@ gulp.task('less', function() {
         .pipe(notify('LESS Compiled'))
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src(scripts)
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('./assets/js'))
         .pipe(notify('Scripts Compiled'))
 });
 
-gulp.task('icons', function() { 
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
-    .pipe(gulp.dest('./assets/fonts')); 
+gulp.task('houzz-icon-css', function() {
+   return gulp.src(config.bowerDir + '/houzz-icon-font/css/houzz-icon-font.css')
+       .pipe(replace('"./houzz', '"../fonts/houzz'))
+       .pipe(gulp.dest("./assets/less"));
+
+
 });
 
-gulp.task('greet', function () {
-    console.log('Hello world!');
+gulp.task('fonts', function () { 
+
+    var fontLocations = [
+        config.bowerDir + '/fontawesome/fonts/**.*',
+        config.bowerDir + '/houzz-icon-font/fonts/**.*'
+    ];
+
+    return gulp.src(fontLocations) .pipe(gulp.dest('./assets/fonts')); 
 });

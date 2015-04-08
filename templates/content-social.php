@@ -8,15 +8,22 @@ $social_icons = [
 ?>
 
 <ul class="icons footer-element">
+    
+    <?php if ($houzzUrl = of_get_option('houzz_url', false)) : ?>
+    <li>
+        <a class="social-icon-houzz" target="_blank" href="<?php echo $houzzUrl; ?>">
+            <i class="icon-houzz fa-2x"></i>
+        </a>
+    </li>
+    <?php endif; ?>
+
     <?php
     foreach ($social_icons as $classname => $url) :
         if ( $url && $url != '' ) :
             ?>
             <li>
                 <a class="social-icon-<?php echo $classname; ?>" target="_blank" href="<?php echo $url ?>">
-                        <span class="">
-                            <i class="fa fa-<?php echo $classname; ?> fa-2x"></i>
-                        </span>
+                    <i class="fa fa-<?php echo $classname; ?> fa-2x"></i>
                 </a>
             </li>
         <?php
