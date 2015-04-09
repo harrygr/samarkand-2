@@ -12,7 +12,7 @@ $social_icons = [
     <?php if ($houzzUrl = of_get_option('houzz_url', false)) : ?>
     <li>
         <a class="social-icon-houzz" target="_blank" href="<?php echo $houzzUrl; ?>">
-            <i class="icon-houzz fa-2x"></i>
+            <i class="icon-houzz fa-2x fa-fw"></i>
         </a>
     </li>
     <?php endif; ?>
@@ -23,7 +23,7 @@ $social_icons = [
             ?>
             <li>
                 <a class="social-icon-<?php echo $classname; ?>" target="_blank" href="<?php echo $url ?>">
-                    <i class="fa fa-<?php echo $classname; ?> fa-2x"></i>
+                    <i class="fa fa-<?php echo $classname; ?> fa-2x fa-fw"></i>
                 </a>
             </li>
         <?php
