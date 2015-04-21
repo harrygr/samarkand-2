@@ -8,7 +8,7 @@ $social_icons = [
 ?>
 
 <ul class="icons footer-element">
-    
+
     <?php if ($houzzUrl = of_get_option('houzz_url', false)) : ?>
     <li>
         <a class="social-icon-houzz" target="_blank" href="<?php echo $houzzUrl; ?>">
