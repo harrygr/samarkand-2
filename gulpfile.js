@@ -24,10 +24,10 @@ var scripts = [
     './assets/js/_main.js'
 ];
 
-gulp.task('default', ['houzz-icon-css', 'fonts', 'less']);
+gulp.task('default', ['fonts', 'less']);
 gulp.task('styles', ['default']);
 
-gulp.task('less', ['houzz-icon-css', 'fonts'],function () {
+gulp.task('less', ['fonts'],function () {
     return gulp.src('./assets/less/main.less')
         .pipe(less({
             paths: [
@@ -49,14 +49,6 @@ gulp.task('scripts', function () {
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('./assets/js'))
         .pipe(notify('Scripts Compiled'))
-});
-
-gulp.task('houzz-icon-css', function() {
-   return gulp.src(config.bowerDir + '/houzz-icon-font/css/houzz-icon-font.css')
-       .pipe(replace('"./houzz', '"../fonts/houzz'))
-       .pipe(gulp.dest("./assets/less"));
-
-
 });
 
 gulp.task('fonts', function () { 

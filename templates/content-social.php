@@ -1,5 +1,6 @@
 <?php
 $social_icons = [
+    'houzz'     => of_get_option('houzz_url', ''),
     'twitter'	=> of_get_option('twitter_url', ''),
     'instagram'	=> of_get_option('instagram_url', ''),
     'facebook'	=> of_get_option('facebook_url', ''),
@@ -8,15 +9,6 @@ $social_icons = [
 ?>
 
 <ul class="icons footer-element">
-
-    <?php if ($houzzUrl = of_get_option('houzz_url', false)) : ?>
-    <li>
-        <a class="social-icon-houzz" target="_blank" href="<?php echo $houzzUrl; ?>">
-            <i class="icon-houzz fa-2x fa-fw"></i>
-        </a>
-    </li>
-    <?php endif; ?>
-
     <?php
     foreach ($social_icons as $classname => $url) :
         if ( $url && $url != '' ) :

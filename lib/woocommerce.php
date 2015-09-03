@@ -1,5 +1,11 @@
 <?php
 
+function woocommerce_active()
+{
+    return class_exists('WooCommerce');
+}
+
+if (woocommerce_active()) {
 // Declare WooCommerce Support
 //add_action( 'after_setup_theme', 'woocommerce_support' );
 //function woocommerce_support() {
@@ -97,6 +103,6 @@ function wg_view_all_products(){
     return of_get_option('shop_products_per_page', 16);
 }
 
-
+}
 
 require_once "woocommerce/checkout.php";
