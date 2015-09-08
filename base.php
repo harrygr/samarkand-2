@@ -36,6 +36,7 @@
         <?php if ( woocommerce_active() and is_woocommerce() )  woocommerce_breadcrumb(); ?>
 
           <?php include roots_template_path(); ?>
+          <hr class="content-separator">
         </main><!-- /.main -->
 
 
