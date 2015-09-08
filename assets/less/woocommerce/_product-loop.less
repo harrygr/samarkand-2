@@ -1,3 +1,5 @@
+@price-bg: fade(@or-melon,80%);
+
 ul.products {
   .row;
   list-style-type: none;
@@ -33,13 +35,28 @@ ul.products {
         position: absolute;
         bottom: 15px;
         left: 0px;
-        font-size:@font-size-large;
+        font-size: @font-size-large;
         padding: 7px;
-        background: fade(@or-melon,80%);
+        background: @price-bg;
+        del {
+          font-size: @font-size-small;
+        }
       }
+  .onsale {
+    position: absolute;
+    bottom: 15px;
+    width: 40px;
+    background: @price-bg;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    right: 5px;
+    border-radius: 20px;
+    z-index: 9;
+  }
 
     }
-   img {
+    img {
      .img-responsive;
      //.img-rounded;
      width:100%;
@@ -48,13 +65,14 @@ ul.products {
 
 
    }
-  }
+  // Sale items
+}
 }
 
-  .text-background {
-    background: rgba(0,0,0,.5);
-    padding:5px;
-  }
+.text-background {
+  background: rgba(0,0,0,.5);
+  padding:5px;
+}
 
 .related ul.products{
   h3 {
@@ -69,3 +87,6 @@ ul.products {
 ul.page-numbers {
   .pagination;
 }
+
+
+
