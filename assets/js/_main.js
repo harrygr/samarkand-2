@@ -29,7 +29,7 @@
 
         // Masonry on the product loop
         $('body').imagesLoaded(function(){
-          $('body.archive ul.products').masonry({
+          $('ul.products').masonry({
             itemSelector: '.masonry-product'
           });
         });
