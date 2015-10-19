@@ -44,10 +44,12 @@ function filter_wc_checkout_field($field)
 
 function filter_wc_checkout_fields($checkout)
 {
-	$checkout->checkout_fields['billing'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['billing']);
-	$checkout->checkout_fields['shipping'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['shipping']);
-	$checkout->checkout_fields['order'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['order']);
-
+	// $checkout->checkout_fields['billing'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['billing']);
+	// $checkout->checkout_fields['shipping'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['shipping']);
+	// $checkout->checkout_fields['order'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['order']);
+	$checkout->checkout_fields = array_map(function($fieldset) {
+		return array_map('filter_wc_checkout_field', $fieldset);
+	}, $checkout->checkout_fields);
 	//pr($checkout->checkout_fields['shipping']);
 	return $checkout;
 }
