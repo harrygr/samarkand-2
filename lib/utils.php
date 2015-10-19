@@ -57,6 +57,10 @@ function better_wpautop($pee){
   return wpautop($pee,false);
 }
 
+function pr($arg) {
+  echo "<pre>" . print_r($arg, 1) . "</pre>";
+}
+
 //remove_filter( 'the_content', 'wpautop' );
 //add_filter( 'the_content', 'better_wpautop' , 99);
 //add_filter( 'the_content', 'shortcode_unautop',100 );

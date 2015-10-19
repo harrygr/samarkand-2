@@ -1,5 +1,5 @@
 <?php
-if ( ! function_exists( 'sd_form_field' ) ) {
+if ( ! function_exists( 'sam_form_field' ) ) {
 
 	/**
 	 * Outputs a checkout/address form field.

@@ -26,3 +26,30 @@ function custom_credit_card_fields($fields, $id)
     return $fields;
 }
 add_filter( 'woocommerce_credit_card_form_fields' , 'custom_credit_card_fields', 10, 2 );
+
+
+function filter_wc_checkout_field($field)
+{
+	$form_args = [
+		'class' => ['form-group', 'form-row'],
+		'input_class' => ['form-control']
+	];
+	$field = array_merge($field, $form_args); 
+	
+	if (isset($field['type']) and $field['type'] == 'country') {
+			$field['input_class'] = [];
+	}
+	return $field;
+}
+
+function filter_wc_checkout_fields($checkout)
+{
+	$checkout->checkout_fields['billing'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['billing']);
+	$checkout->checkout_fields['shipping'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['shipping']);
+	$checkout->checkout_fields['order'] = array_map('filter_wc_checkout_field', $checkout->checkout_fields['order']);
+
+	//pr($checkout->checkout_fields['shipping']);
+	return $checkout;
+}
+
+add_filter('woocommerce_before_checkout_billing_form', 'filter_wc_checkout_fields');
