@@ -7,6 +7,7 @@ var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var replace = require('gulp-replace');
+var sourcemaps = require('gulp-sourcemaps');
 
 var config = {
     bowerDir: './assets/vendor',
@@ -29,6 +30,7 @@ gulp.task('styles', ['default']);
 
 gulp.task('less', ['fonts'],function () {
     return gulp.src('./assets/less/main.less')
+        .pipe(sourcemaps.init())
         .pipe(less({
             paths: [
                 config.bowerDir + '/fancybox/source',
@@ -39,6 +41,7 @@ gulp.task('less', ['fonts'],function () {
             return "Error: " + error.message;
         })))
         .pipe(minifyCSS())
+        .pipe(sourcemaps.write())
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('LESS Compiled'))
