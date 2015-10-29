@@ -22,7 +22,8 @@ if (!defined('WP_ENV')) {
 $args = array(
     'width'         => 150,
     'height'        => 150,
-    'default-image' => get_template_directory_uri() . '/assets/img/samarkand-logo-border.png',
+    //'default-image' => get_template_directory_uri() . '/assets/img/samarkand-logo-border.png',
+    'default-image' => get_template_directory_uri() . '/assets/img/samarkand-logo-250.svg',
     'uploads'       => true,
 );
 add_theme_support( 'custom-header', $args );
@@ -84,3 +85,15 @@ function roots_display_sidebar() {
  * Default: 1140px is the default Bootstrap container width.
  */
 if (!isset($content_width)) { $content_width = 1140; }
+
+
+/**
+ * Allow SVG uploads
+ * @param  array $mimes Allowed mimes
+ * @return array        
+ */
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
