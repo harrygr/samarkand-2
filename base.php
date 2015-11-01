@@ -33,6 +33,11 @@
 
         <main id="main" class="main" role="main">
 
+        <?php if ( of_get_option('store_notice_visible') and woocommerce_active() and (is_woocommerce() or is_page(['cart', 'checkout']))) { ?>
+        <div class="alert alert-info"><?php echo of_get_option('store_notice_content') ?></div>
+        <?php } ?>
+
+
         <?php if ( woocommerce_active() and is_woocommerce() )  woocommerce_breadcrumb(); ?>
 
           <?php include roots_template_path(); ?>
